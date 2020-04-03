@@ -1,2 +1,2 @@
-# -Homework03
+# homework03
 generate passwords
