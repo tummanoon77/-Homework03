@@ -1,3 +1,7 @@
+
+
+
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -19,6 +23,21 @@ generateBtn.addEventListener("click", writePassword);
 //uppercaseCode start at number 65
 //numbers have 10 numbers, code start at number 48
 //specialCharacters 
+alert("Hello welcome to secure generate password")
+var length = prompt("How many characters will your password be? Enter a number between 8 and 128");
+var pl = length ;
+
+if (8<length && length<128){
+  alert("Thank you");
+}else if (length<8 && length>128){
+  alert("please enter a number between 8 and 128" );
+ 
+}else{
+  alert("please enter a number between 8 and 128");
+
+}
+
+var charType = prompt("Enter a character type: symbol, number, uppercase, lowercase.");
 
 
 function getRandomLower(){
@@ -32,7 +51,7 @@ function getRandomNumber(){
             }
 function getRandomSymbol(length){
       var symbols = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-      var randomSymbol = ""
+      var randomSymbol = "";
       if (length > 0){
         for (var i=0 ;i<length; i++){
           randomSymbol += symbols.charAt(Math.floor( Math.random() * symbols.length));
@@ -40,7 +59,5 @@ function getRandomSymbol(length){
       }
       return randomSymbol;
     }
-console.log(getRandomLower());
-console.log(getRandomUpper());
-console.log(getRandomNumber());
-console.log(getRandomSymbol(1));
+
+    
