@@ -22,7 +22,7 @@ var getPasswordOption = [] ;
 
 alert("Hello welcome to secure generate password")
 
-
+while (getPasswordOption.length !=5){
 var pLength = prompt("How many characters will your password be? Enter a number between 8 and 128");
 
   if (8<pLength && pLength<128){
@@ -45,7 +45,7 @@ var pLength = prompt("How many characters will your password be? Enter a number 
   }else{
   alert("please enter a number between 8 and 128");
   }
-
+}
 console.log(getPasswordOption);
 
 var randomFunction= {
