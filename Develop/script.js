@@ -1,7 +1,3 @@
-
-
-
-
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -14,11 +10,21 @@ function writePassword() {
 
 }
 
+
+
+
+
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", () =>{
 
-
-
+resultBtn.innerText= generatedPassword (
+  pl,
+  doWantLower,
+  doWantUpper,
+  doWantNumber,
+  doWantSymbol
+ );
+ } );
 
 
 
@@ -33,8 +39,12 @@ alert("Hello welcome to secure generate password")
 while (getPasswordOption.length !=5){
 var pLength = prompt("How many characters will your password be? Enter a number between 8 and 128");
 
+
   if (8<pLength && pLength<128){
-    getPasswordOption.push(pLength);
+    var pl = +pLength ;
+    console.log(typeof pl);
+
+    getPasswordOption.push(pl);
     var doWantUpper = confirm ("Do you want uppercase? " );
           
           getPasswordOption.push(doWantUpper);
@@ -55,17 +65,44 @@ var pLength = prompt("How many characters will your password be? Enter a number 
   }
 }
 console.log(getPasswordOption);
-console.log(typeof pLength);
 
-var length = +pLength.value;
-console.log(typeof length);
-  var randomFunc = {
+var randomFunc = {
   lower : getRandomLower ,
   upper :getRandomUpper,
   number : getRandomNumber,
   symbol : getRandomSymbol
 };
 console.log (randomFunc);
+
+console.log (doWantLower,doWantNumber,doWantSymbol,doWantUpper);
+  // generatedpassword function
+  function generatedPassword(doWantLower,doWantNumber,doWantSymbol,doWantUpper,pl){
+
+let generatedPassword = ' ' ;
+
+const typesCount = doWantLower + doWantUpper + doWantNumber + doWantSymbol ;
+console.log( 'typesCount:',typesCount);
+
+const typesArr = [{doWantLower}, {doWantUpper}, {doWantNumber}, {doWantSymbol}].filter
+(item => Object.value(item)[0]
+);
+console.log( 'typesArr:',typesArr);
+if( typesCount === 0){
+  return '';
+}
+ for (let i=0; i<pl; i += typesCount) {
+   typesArr.forEach(type =>{
+     const funcName = Object.keys(type)[0];
+
+     console.log('funcName:',funcName);
+     generatedPassword += randomFunc[funcName]();
+ });
+
+  }
+  const finalPassword = generatedPassword.slice(0,pl);
+  return finalPassword ;
+}
+
 
 //Generetor functions -
 // Characters have 26charactors , lowercaseCode  start at number 97
@@ -90,19 +127,8 @@ function getRandomSymbol(){
 
     
      
-    var pLength = i ;
-    function generatePassword(){
+    
+      
+    
 
-      if(getPasswordOption=["i","y","y","y","y"] ){
-
-
-
-      }
-      
-      
-      
-      
-      
-      }
-      
-      
+    
